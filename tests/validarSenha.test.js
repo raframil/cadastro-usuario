@@ -2,11 +2,10 @@ const { expect, beforeAll, it } = require("@jest/globals");
 const Senha = require("../js/validarSenha.js");
 const passwordGenerator = require('generate-password');
 
-let senha = ''
-
 const mockUsuario = {
     nome: 'FooBar',
     ano: 1990,
+    senha: ''
 }
 
 beforeAll(() => {
