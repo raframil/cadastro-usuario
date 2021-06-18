@@ -19,42 +19,42 @@ beforeAll(() => {
 
 describe("Validar senha", () => {
   it("deve ter no mínimo 6 caracteres", () => {
-    expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, senha)).toBe(false);
+    expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, mockUsuario.senha)).toBe(false);
   });
 
   it("deve ter no máximo 20 caracteres", () => {
-    expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, senha)).toBe(false);
+    expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, mockUsuario.senha)).toBe(false);
   });
 
   it("deve possuir um caractere especial", () => {
     const regex =  /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/
     const testarSenha = regex.test(senha);
-    expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, senha)).toBe(testarSenha);
+    expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, mockUsuario.senha)).toBe(testarSenha);
   });
 
   it('deve possuir letras', () => {
     const regex = /[a-zA-Z]/g;
     const testarSenha = regex.test(senha);
-    expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, senha)).toBe(testarSenha);
+    expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, mockUsuario.senha)).toBe(testarSenha);
   })
 
   it('deve possuir números', () => {
     const regex = /\d/g;
     const testarSenha = regex.test(senha);
-    expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, senha)).toBe(testarSenha);
+    expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, mockUsuario.senha)).toBe(testarSenha);
   })
 
   it('não deve possuir nome do usuario', () => {
     const testeSenha = 'senhalegalFoo'
     if (testeSenha.includes(mockUsuario.nome)) {
-        expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, senha)).toBe(false);
+        expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, mockUsuario.senha)).toBe(false);
     }
   })
 
   it('não deve possuir ano do usuario', () => {
     const testeSenha = 'senha1990Nova!'
     if (testeSenha.includes(mockUsuario.ano)) {
-        expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, senha)).toBe(false);
+        expect(Senha.validarSenha(mockUsuario.nome, mockUsuario.ano, mockUsuario.senha)).toBe(false);
     }
   })
 });
